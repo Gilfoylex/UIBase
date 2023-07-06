@@ -1,0 +1,21 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ct="using:UIBase.CustomControls">
+    <Design.PreviewWith>
+        <ct:IconButton />
+    </Design.PreviewWith>
+
+    <Style Selector="ct|IconButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Image x:Name="PART_Icon" Source="{TemplateBinding Icon}" Stretch="Uniform" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="ct|IconButton:pointerover /template/ Image#PART_Icon">
+        <Setter Property="Source" Value="{Binding HoverIcon, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+    <Style Selector="ct|IconButton:pressed /template/ Image#PART_Icon">
+        <Setter Property="Source" Value="{Binding PushIcon, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+</Styles>

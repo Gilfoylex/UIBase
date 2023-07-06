@@ -1,0 +1,51 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ct="using:UIBase.CustomControls">
+    <Design.PreviewWith>
+        <ct:TextRadio Width="70" Height="16" IsChecked="False" FontSize="12" HoverForeground="Red" PushForeground="Yellow">英雄联盟</ct:TextRadio>
+    </Design.PreviewWith>
+
+    <Style Selector="ct|TextRadio">
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="TextMargin" Value="0"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HoverForeground" Value="White" />
+        <Setter Property="PushForeground" Value="#FF9600" />
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="HoverBackground" Value="Transparent"></Setter>
+        <Setter Property="PushBackground" Value="Transparent"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ct:TextRadio">
+                <Border x:Name="PART_Border" BorderThickness="0" Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding BorderRadius}">
+                    <TextBlock x:Name="PART_TextBlock"
+                               Padding="0"
+                               Margin="{TemplateBinding TextMargin}"
+                               FontSize="{TemplateBinding FontSize}"
+                               FontWeight="{TemplateBinding FontWeight}"
+                               Foreground="{TemplateBinding Foreground}"
+                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                               TextTrimming="CharacterEllipsis"
+                               Text="{TemplateBinding Content}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ct|TextRadio:pointerover /template/ TextBlock#PART_TextBlock">
+        <Setter Property="Foreground" Value="{Binding HoverForeground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|TextRadio:checked /template/ TextBlock#PART_TextBlock">
+        <Setter Property="Foreground" Value="{Binding PushForeground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|TextRadio:pointerover /template/ Border#PART_Border">
+        <Setter Property="Background" Value="{Binding HoverBackground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|TextRadio:checked /template/ Border#PART_Border">
+        <Setter Property="Background" Value="{Binding PushBackground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+</Styles>

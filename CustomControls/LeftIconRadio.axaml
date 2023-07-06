@@ -1,0 +1,56 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ct="using:UIBase.CustomControls">
+    <Design.PreviewWith>
+        <ct:LeftIconRadio Width="160" Height="38"  Content="LeftIconButton"/>
+    </Design.PreviewWith>
+
+    <Style Selector="ct|LeftIconRadio">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HoverForeground" Value="White" />
+        <Setter Property="PushForeground" Value="#FFFF9600" />
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="PushBackground" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Border" BorderThickness="0"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding BorderRadius}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="PART_Image" Width="{TemplateBinding IconWidth}" 
+                               Margin="{TemplateBinding IconMargin}"
+                               Height="{TemplateBinding IconHeight}"
+                               Source="{TemplateBinding Icon}" Stretch="Uniform"></Image>
+                        <TextBlock x:Name="PART_TextBlock"
+                                   Margin="{TemplateBinding TextMargin}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   FontWeight="{TemplateBinding FontWeight}"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Text="{TemplateBinding Content}" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="ct|LeftIconRadio:pointerover /template/ Image#PART_Image">
+        <Setter Property="Source" Value="{Binding HoverIcon, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|LeftIconRadio:pointerover /template/ TextBlock#PART_TextBlock">
+        <Setter Property="Foreground" Value="{Binding HoverForeground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    
+    <Style Selector="ct|LeftIconRadio:checked /template/ Image#PART_Image">
+        <Setter Property="Source" Value="{Binding PushIcon, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|LeftIconRadio:checked /template/ TextBlock#PART_TextBlock">
+        <Setter Property="Foreground" Value="{Binding PushForeground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+    <Style Selector="ct|LeftIconRadio:checked /template/ Border#PART_Border">
+        <Setter Property="Background" Value="{Binding PushBackground, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+    </Style>
+</Styles>

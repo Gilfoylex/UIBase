@@ -1,0 +1,48 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ct="using:UIBase.CustomControls">
+    <Design.PreviewWith>
+        <ct:TextButton Width="100" Height="50">TextButton</ct:TextButton>
+    </Design.PreviewWith>
+
+    <Style Selector="ct|TextButton">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Background" Value="#01000000" />
+        <Setter Property="HoverBackground" Value="#01000000"/>
+        <Setter Property="PushBackground" Value="#01000000"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="BtnTextTrimming" Value="CharacterEllipsis"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Border" BorderThickness="0"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding BorderRadius}">
+                    <Grid>
+                        <TextBlock x:Name="PART_TextBlock"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   FontWeight="{TemplateBinding FontWeight}"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   TextAlignment="{TemplateBinding BtnTextTrimming}"
+                                   Text="{TemplateBinding Content}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="ct|TextButton:pointerover /template/ TextBlock#PART_TextBlock">
+        <Setter Property="TextBlock.Foreground" Value="{Binding HoverForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+    <Style Selector="ct|TextButton:pressed /template/ TextBlock#PART_TextBlock">
+        <Setter Property="TextBlock.Foreground" Value="{Binding PushForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+    <Style Selector="ct|TextButton:pointerover /template/ Border#PART_Border">
+        <Setter Property="Background" Value="{Binding HoverBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+    <Style Selector="ct|TextButton:pressed /template/ Border#PART_Border">
+        <Setter Property="Background" Value="{Binding PushBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+    </Style>
+</Styles>

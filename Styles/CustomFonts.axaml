@@ -1,0 +1,28 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:ct="using:UIBase.CustomControls"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Styles.Resources>
+        <FontFamily x:Key="OPlusSans3.0">avares://UIBase/Assets/Fonts#OPlusSans 3.0</FontFamily>
+    </Styles.Resources>
+    
+    <Style Selector="Label">
+        <Setter Property="FontFamily" Value="{StaticResource OPlusSans3.0}"></Setter>
+    </Style>
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource OPlusSans3.0}"></Setter>
+    </Style>
+    <Style Selector="TextBox">
+        <Setter Property="FontFamily" Value="{StaticResource OPlusSans3.0}"></Setter>
+    </Style>
+    
+    <Style Selector="ct|LeftIconRadio">
+        <Setter Property="FontFamily" Value="{StaticResource OPlusSans3.0}"></Setter>
+    </Style>
+</Styles>
